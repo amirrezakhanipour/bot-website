@@ -14,42 +14,42 @@ import {
 const CORE_FEATURES = [
   {
     title: "Signal Execution",
-    description: "Automated parsing and instant dispatch of trade commands directly into MetaTrader 5.",
+    description: "Parses structured trading signals and executes the corresponding orders in MetaTrader 5.",
     icon: TerminalIcon,
   },
   {
     title: "Risk Management",
-    description: "Mandatory Stop-Loss enforcement on every order to cap maximum per-trade downside.",
+    description: "Applies stop-loss and configured risk rules before eligible orders are opened.",
     icon: ShieldIcon,
   },
   {
     title: "Multi Take-Profit Execution",
-    description: "Automated order splitting across up to 3 distinct TP price targets.",
+    description: "Supports multiple signal-defined take-profit targets, with execution support for up to six targets.",
     icon: SlidersIcon,
   },
   {
     title: "Break-Even Management",
-    description: "Automatic stop-loss trailing to entry price once initial profit targets are secured.",
+    description: "Moves remaining positions toward risk-free management when the configured lifecycle condition is reached.",
     icon: RefreshCwIcon,
   },
   {
     title: "Position Sizing",
-    description: "Dynamic lot calculation based on account equity and configured risk percentage per trade.",
+    description: "Calculates position size from account equity, entry-to-stop distance, and configured signal risk.",
     icon: CpuIcon,
   },
   {
     title: "Duplicate Protection",
-    description: "Anti-overlap safeguards preventing duplicate trade executions for identical signals.",
+    description: "Prevents the same signal from opening duplicate sets of trades.",
     icon: CheckCircleIcon,
   },
   {
     title: "Signal Expiration",
-    description: "Automatic rejection of stale signals exceeding configured time-in-force limits.",
+    description: "Rejects stale signals after the configured validity window has elapsed.",
     icon: LockIcon,
   },
   {
     title: "Risk Limits",
-    description: "Daily and cumulative drawdown guardrails that halt execution upon threshold breach.",
+    description: "Applies configured loss limits that can halt new execution when protection thresholds are reached.",
     icon: AlertTriangleIcon,
   },
 ];
@@ -61,10 +61,9 @@ export function FeaturesSection() {
         <SectionHeading
           badge="Core Capabilities"
           title="Systematic MT5 Execution Engine"
-          subtitle="Built to eliminate manual execution delays and enforce strict quantitative risk parameters on every trade."
+          subtitle="Designed to reduce manual execution delay and apply configured trade-management rules consistently."
         />
 
-        {/* 8 Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {CORE_FEATURES.map((feature, idx) => {
             const IconComponent = feature.icon;
@@ -85,7 +84,7 @@ export function FeaturesSection() {
                   </p>
                 </div>
                 <div className="pt-2 text-[11px] font-mono text-zinc-500 group-hover:text-zinc-400 transition-colors flex items-center gap-1">
-                  <span>SPEC_ID // 0{idx + 1}</span>
+                  <span>CAPABILITY // 0{idx + 1}</span>
                 </div>
               </div>
             );
