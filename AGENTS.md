@@ -16,9 +16,13 @@ MVP license/dashboard activation remains manual after payment.
 
 ## Current Phase Gate
 
-Current authorized scope: **Phase 1 — Website Architecture + Database Schema**.
+Current authorized scope: **Phase 2 — Home Page UI**.
 
-Do NOT implement Phase 2 Home Page UI or any later phase without explicit user approval.
+Phase 1 is complete and merged.
+
+During Phase 2, implement ONLY the public Home Page UI and reusable marketing UI primitives needed by that page.
+
+Do NOT implement Phase 3 Live Bot streaming, Phase 4 Performance data integration, authentication, checkout/payment gateway integration, admin pages, other marketing pages, licensing integration, or Client Dashboard integration.
 
 ## Preferred Stack
 
@@ -29,16 +33,29 @@ Do NOT implement Phase 2 Home Page UI or any later phase without explicit user a
 - Tailwind CSS
 - GitHub as source of truth
 
-Use current stable package versions discovered from official documentation/tooling. Pin installed versions and commit the lockfile.
+Use current stable package versions discovered from official documentation/tooling. Keep the existing lockfile authoritative unless a package is genuinely required.
 
 ## Architecture Rules
 
 - Keep a single Next.js app for the MVP.
 - Do not add microservices, queues, Prisma, a separate API server, or a CMS without a demonstrated need.
 - Prefer Server Components by default.
-- Use Server Actions/Route Handlers for trusted mutations and integrations.
-- Payment gateway code must sit behind a provider adapter so the gateway can change later.
+- Use Client Components only where browser interactivity is required.
+- Payment gateway code must stay behind the existing provider adapter.
 - Future licensing integration must sit behind an adapter; do not couple website domain tables to licensing implementation details.
+
+## Phase 2 Home UI Rules
+
+- Build a premium, modern, trustworthy trading/fintech visual system.
+- Prioritize mobile responsiveness, accessibility, semantic HTML, and fast loading.
+- Do not fabricate performance numbers, testimonials, client counts, broker logos, awards, certifications, reviews, or trading results.
+- Do not imply guaranteed profit or low/no risk.
+- Live Bot section is a visual integration shell only in Phase 2. Do not create or embed a real stream.
+- Performance sections are presentation shells only in Phase 2. Do not connect them to Supabase and do not invent metrics.
+- Pricing UI may be displayed as a visual shell, but Buy/Checkout flows must not be implemented yet.
+- Navigation links to future pages may exist, but do not build those pages in Phase 2.
+- Keep marketing copy factual and restrained.
+- Include clear trading risk language on the Home Page.
 
 ## Security Rules
 
@@ -67,13 +84,18 @@ Live streaming is Phase 3. When implemented, stream only a dedicated public MT5/
 
 Before considering a task complete:
 
-- run relevant type/lint/build/tests;
-- for Supabase DDL, run current security/performance advisors after applying changes;
-- verify RLS with anonymous, normal user, cross-user, and admin cases;
+- run `npm run lint`;
+- run `npm run build`;
+- inspect the page at common desktop and mobile widths;
+- check for obvious horizontal overflow and broken layout;
+- ensure controls have accessible labels/focus behavior where applicable;
 - inspect `git diff` and avoid unrelated changes.
+
+For any future Supabase DDL changes, run current security/performance advisors and verify RLS cases.
 
 ## Git Workflow
 
+- Work on `phase/2-home-ui` for this phase.
 - Keep commits phase/task scoped.
 - Do not force-push or rewrite shared history.
 - Do not start the next phase automatically after completing the current one.
