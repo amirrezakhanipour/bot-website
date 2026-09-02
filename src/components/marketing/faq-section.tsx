@@ -7,35 +7,35 @@ import { ChevronDownIcon, ShieldIcon } from "@/components/shared/icons";
 const FAQ_ITEMS = [
   {
     question: "What does the Trading Bot do?",
-    answer: "The Trading Bot ingests formatted signal alerts and automatically converts them into structured MetaTrader 5 (MT5) market orders with pre-configured position sizing, stop-loss rules, multi take-profit target splits, and trailing break-even triggers.",
+    answer: "The Trading Bot ingests formatted trading signals and turns eligible signals into structured MetaTrader 5 orders with position sizing, stop-loss handling, multiple take-profit targets, break-even management, duplicate protection, expiration rules, and execution risk controls.",
   },
   {
     question: "Does the bot guarantee profit?",
-    answer: "No. Automated trading involves substantial financial risk, and losses are possible. Historical performance records do not guarantee future returns, and the bot does not guarantee profit under any circumstances.",
+    answer: "No. Automated trading involves substantial financial risk, and losses are possible. Historical performance does not guarantee future returns, and the bot does not guarantee profit under any circumstances.",
   },
   {
     question: "Can I watch the bot live?",
-    answer: "Yes. Phase 3 will introduce a 24/7 live stream displaying a dedicated public MT5 window capture. You will be able to monitor signal execution in real time without exposing VPS credentials or private account data.",
+    answer: "The website is designed to provide a 24/7 public view of a dedicated MT5 window. That stream will be connected in Phase 3 without exposing the full VPS desktop or private credentials.",
   },
   {
     question: "Which platform does it use?",
-    answer: "The bot executes trades natively on the MetaTrader 5 (MT5) platform across supported brokers.",
+    answer: "The bot executes trades in the MetaTrader 5 (MT5) environment. Broker compatibility must be confirmed for the account and symbol configuration being used.",
   },
   {
     question: "How is risk managed?",
-    answer: "Risk is managed strictly through mandatory Stop-Loss parameters on every trade, dynamic lot calculation based on fixed account risk percentages, duplicate trade protection, signal expiration windows, and daily/cumulative drawdown guardrails.",
+    answer: "The execution system uses stop-loss parameters, entry-to-stop based position sizing, duplicate protection, signal expiration rules, and configured loss-limit protections. Exact settings remain part of the bot configuration rather than marketing assumptions.",
   },
   {
     question: "What information is required to activate my subscription?",
-    answer: "Activation requires only your MT5 account login (account number), your broker name, and your server name.",
+    answer: "Website activation data is limited to your MT5 account login or account number, broker name, and MT5 server name, together with your website account and order information.",
   },
   {
     question: "Do you need my MT5 master password?",
-    answer: "NO. The website and system NEVER request, log, or store your MT5 master password under any circumstances. You retain full control of your master password at all times.",
+    answer: "No. The website must never request, log, or store your MT5 master password. You retain control of that password at all times.",
   },
   {
     question: "How does activation work after purchase?",
-    answer: "During the MVP phase, order activation is completed manually by an admin after payment confirmation. Once activated, your order status updates to 'activated' and provides access to your account dashboard.",
+    answer: "For the MVP, an admin completes activation after payment is confirmed using the existing licensing and client-dashboard systems. The website then reflects the relevant order and activation status.",
   },
 ];
 
@@ -52,10 +52,9 @@ export function FaqSection() {
         <SectionHeading
           badge="Frequently Asked Questions"
           title="Common Questions & Operational Details"
-          subtitle="Everything you need to know about system capabilities, risk management, and security boundaries."
+          subtitle="Key details about system capabilities, risk management, activation, and account-security boundaries."
         />
 
-        {/* Accordion Container */}
         <div className="max-w-3xl mx-auto space-y-3">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openIndex === idx;
@@ -79,9 +78,7 @@ export function FaqSection() {
                     {item.question}
                   </span>
                   <div
-                    className={`w-6 h-6 rounded-full bg-zinc-950 flex items-center justify-center text-zinc-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-emerald-400" : ""
-                    }`}
+                    className={`w-6 h-6 rounded-full bg-zinc-950 flex items-center justify-center text-zinc-400 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-emerald-400" : ""}`}
                   >
                     <ChevronDownIcon size={14} />
                   </div>
