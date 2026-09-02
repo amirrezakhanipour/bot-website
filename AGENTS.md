@@ -16,9 +16,13 @@ MVP license/dashboard activation remains manual after payment.
 
 ## Current Phase Gate
 
-Phase 1 and Phase 2 are complete. Current work is limited to Phase 2 visual/localization corrections until explicitly approved otherwise.
+Phase 1 and Phase 2 are complete.
 
-Do NOT implement Phase 3 Live Bot streaming, Phase 4 Performance data integration, authentication, checkout/payment gateway integration, admin pages, other marketing pages, licensing integration, or Client Dashboard integration without explicit user approval.
+Current authorized scope: **Phase 3 — 24/7 Live Bot**.
+
+During Phase 3, implement only the public Live Bot streaming integration described in `docs/PHASE3_LIVE_BOT.md` and the small reusable/configuration pieces required for it.
+
+Do NOT implement Phase 4 Performance data integration, authentication, checkout/payment gateway integration, admin pages, other marketing pages, licensing integration, or Client Dashboard integration.
 
 ## Language & Direction
 
@@ -54,18 +58,30 @@ Use current stable package versions discovered from official documentation/tooli
 - Prioritize mobile responsiveness, accessibility, semantic HTML, and fast loading.
 - Do not fabricate performance numbers, testimonials, client counts, broker logos, awards, certifications, reviews, or trading results.
 - Do not imply guaranteed profit or low/no risk.
-- Live Bot section is a visual integration shell until Phase 3. Do not create or embed a real stream early.
 - Performance sections remain presentation shells until Phase 4. Do not invent metrics.
 - Pricing UI may be displayed as a visual shell, but Buy/Checkout flows must not be implemented before their authorized phase.
 - Navigation links to future pages may exist, but do not build those pages early.
 - Keep marketing copy factual and restrained.
 - Include clear trading risk language on the Home Page.
 
+## Phase 3 Live Bot Rules
+
+- Treat `docs/PHASE3_LIVE_BOT.md` as authoritative.
+- MVP architecture is OBS Studio Window Capture on the Windows VPS -> YouTube Live over RTMPS -> embedded YouTube player on the Home Page.
+- Never stream the full VPS desktop.
+- Never use Display Capture when the intended source is the dedicated public MT5 window.
+- The website must never receive or contain the YouTube stream key, VPS address/credentials, MT5 master password, licensing secrets, or other private credentials.
+- The website may receive only public-safe stream configuration such as a YouTube video ID.
+- Keep the stream provider boundary simple so the player can be swapped later without rewriting the Home Page.
+- If stream configuration is absent, render an honest Persian fallback state instead of a fake live state or runtime error.
+- Do not promise guaranteed 100% stream uptime.
+- Do not implement a stream-health backend, WebRTC server, custom HLS pipeline, remote-control system, or OBS automation service in this phase.
+
 ## Security Rules
 
 - Never request, store, log, or expose an MT5 master password.
 - Never commit `.env` secrets.
-- Never expose Supabase service/secret keys, payment secrets, licensing secrets, VPS credentials, DB credentials, or admin credentials in client code.
+- Never expose Supabase service/secret keys, payment secrets, licensing secrets, VPS credentials, DB credentials, admin credentials, or YouTube stream keys in client code.
 - Website passwords belong to Supabase Auth only; do not create a custom password column.
 - Enable RLS on every table in an exposed Supabase schema.
 - Never use user-editable metadata for admin authorization.
@@ -80,25 +96,24 @@ Use current stable package versions discovered from official documentation/tooli
 - Pricing is database-managed and orders snapshot amount/currency at purchase time.
 - MT5 account data is limited to login/account number, broker, and server.
 
-## Live Bot Rule
-
-Live streaming is Phase 3. When implemented, stream only a dedicated public MT5/window capture. Never stream the whole VPS desktop or expose VPS credentials.
-
 ## Verification
 
 Before considering a task complete:
 
 - run `npm run lint`;
 - run `npm run build`;
-- inspect the page at common desktop and mobile widths;
+- inspect the Home Page at common desktop and mobile widths;
+- verify the no-stream-config fallback state;
+- verify the configured YouTube embed state using a safe test/public video ID or equivalent local configuration without committing it;
 - check for obvious horizontal overflow and broken RTL layout;
-- ensure controls have accessible labels/focus behavior where applicable;
+- ensure the iframe has an accessible title and responsive sizing;
 - inspect `git diff` and avoid unrelated changes.
 
 For any future Supabase DDL changes, run current security/performance advisors and verify RLS cases.
 
 ## Git Workflow
 
+- Work on `phase/3-live-bot` for this phase.
 - Keep commits phase/task scoped.
 - Do not force-push or rewrite shared history.
 - Do not start the next phase automatically after completing the current one.
