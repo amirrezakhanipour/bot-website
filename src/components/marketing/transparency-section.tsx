@@ -4,23 +4,23 @@ import { LockIcon, ShieldIcon, ActivityIcon, CheckCircleIcon } from "@/component
 
 const TRANSPARENCY_PILLARS = [
   {
-    title: "Append-Only Performance History",
-    description: "Every performance edit and monthly summary is recorded as an immutable append-only entry. Negative performance months remain permanently visible.",
+    title: "Performance Revision History",
+    description: "Manual performance metric edits create new timestamped value records so prior metric revisions remain available. Monthly records are retained, including negative months.",
     icon: ActivityIcon,
   },
   {
     title: "Zero Master Password Storage",
-    description: "The website never requests, logs, or stores your MetaTrader 5 master password. Account connection requires only account login, broker, and server name.",
+    description: "The website never requests, logs, or stores your MetaTrader 5 master password. Activation data is limited to account login, broker, and server name.",
     icon: LockIcon,
   },
   {
-    title: "Systematic Execution Consistency",
-    description: "Algorithmic rules enforce exact Stop-Loss and Take-Profit execution without manual emotional override, hesitation, or panic closing.",
+    title: "Rule-Based Trade Management",
+    description: "Configured execution, position-sizing, stop-loss, take-profit, break-even, duplicate-protection, and risk-limit rules are applied systematically by the bot.",
     icon: ShieldIcon,
   },
   {
     title: "Documented Research & Methodologies",
-    description: "System features and underlying execution mechanics are documented transparently for review on dedicated reference pages.",
+    description: "System features, reference material, and installation guidance will be documented on dedicated website pages as those phases are implemented.",
     icon: CheckCircleIcon,
   },
 ];
@@ -32,10 +32,9 @@ export function TransparencySection() {
         <SectionHeading
           badge="Product Principles"
           title="Transparency & Operational Security"
-          subtitle="Designed to provide quantitative clarity without marketing hype, hidden fees, or fabricated records."
+          subtitle="Designed around clear product boundaries, visible risk disclosures, traceable performance updates, and careful handling of account information."
         />
 
-        {/* 4 Transparency Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {TRANSPARENCY_PILLARS.map((pillar, idx) => {
             const IconComponent = pillar.icon;
