@@ -9,28 +9,28 @@ import {
 
 const TRUST_PULSES = [
   {
-    title: "MetaTrader 5 Native",
-    description: "Executes directly via MT5 API",
+    title: "MetaTrader 5 Execution",
+    description: "Runs within the MT5 trading environment",
     icon: CpuIcon,
   },
   {
     title: "Structured Risk Rules",
-    description: "Hard stop-loss enforcement",
+    description: "Stop-loss and risk controls",
     icon: ShieldIcon,
   },
   {
     title: "Multi-TP Execution",
-    description: "Split volume across targets",
+    description: "Supports multiple signal targets",
     icon: SlidersIcon,
   },
   {
     title: "Duplicate Guard",
-    description: "Prevents overlapping trades",
+    description: "Blocks duplicate signal execution",
     icon: CheckCircleIcon,
   },
   {
-    title: "Transparent Logging",
-    description: "Append-only operational record",
+    title: "Operational Logging",
+    description: "Execution events remain traceable",
     icon: ActivityIcon,
   },
 ];
@@ -43,10 +43,7 @@ export function TrustStrip() {
           {TRUST_PULSES.map((pillar, idx) => {
             const IconComponent = pillar.icon;
             return (
-              <div
-                key={idx}
-                className="flex items-center gap-3 text-left group"
-              >
+              <div key={idx} className="flex items-center gap-3 text-left group">
                 <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-400 group-hover:border-emerald-500/40 transition-colors shrink-0">
                   <IconComponent size={18} />
                 </div>
