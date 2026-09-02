@@ -8,14 +8,12 @@ export function MonthlyPerformanceSection() {
     <section className="py-20 md:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <SectionHeading
-          badge="Historical Audit"
+          badge="Historical Record"
           title="Monthly Performance Log"
-          subtitle="Calendar month breakdown. All recorded months—including negative performance periods—remain permanently visible."
+          subtitle="Calendar-month results are published manually. Negative performance periods remain visible rather than being removed from the record."
         />
 
-        {/* Monthly Performance UI Container Shell */}
         <div className="max-w-5xl mx-auto rounded-2xl bg-zinc-900/90 border border-zinc-800 shadow-2xl overflow-hidden backdrop-blur-xl">
-          {/* Header */}
           <div className="px-6 py-4 bg-zinc-950 border-b border-zinc-800 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <BarChartIcon size={18} className="text-emerald-400" />
@@ -23,10 +21,9 @@ export function MonthlyPerformanceSection() {
                 MONTHLY_RESULTS_LOG
               </h3>
             </div>
-            <StatusBadge status="History Shell Ready" variant="neutral" />
+            <StatusBadge status="Awaiting Published Data" variant="neutral" />
           </div>
 
-          {/* Table Header Columns Shell */}
           <div className="hidden sm:grid grid-cols-5 px-6 py-3 bg-zinc-950/60 border-b border-zinc-800/60 text-xs font-mono text-zinc-400">
             <div>CALENDAR MONTH</div>
             <div className="text-right">RETURN %</div>
@@ -35,7 +32,6 @@ export function MonthlyPerformanceSection() {
             <div className="text-right">MAX DRAWDOWN</div>
           </div>
 
-          {/* Body: Honest Empty State */}
           <div className="p-12 text-center space-y-3 bg-zinc-950/40">
             <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 mx-auto">
               <BarChartIcon size={22} />
@@ -45,15 +41,14 @@ export function MonthlyPerformanceSection() {
                 No Monthly Records Published
               </h4>
               <p className="text-xs text-zinc-500 leading-relaxed font-mono">
-                Verified monthly performance records will populate here upon live trade execution. Negative months are preserved without deletion.
+                The administrator will publish real monthly results here when they are available. No sample returns are shown in the meantime.
               </p>
             </div>
           </div>
 
-          {/* Table Footer Policy Banner */}
           <div className="px-6 py-3 bg-zinc-950/80 border-t border-zinc-800 text-[11px] font-mono text-zinc-500 flex flex-wrap justify-between gap-2">
-            <span>AUDIT POLICY: APPEND-ONLY HISTORICAL RECORD</span>
-            <span>NEGATIVE MONTHS: VISIBLE BY MANDATE</span>
+            <span>HISTORY POLICY: RETAIN PUBLISHED MONTHS</span>
+            <span>NEGATIVE MONTHS: REMAIN VISIBLE</span>
           </div>
         </div>
       </div>
