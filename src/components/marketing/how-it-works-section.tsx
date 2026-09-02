@@ -12,31 +12,31 @@ const EXECUTION_STEPS = [
   {
     step: "01",
     title: "Signal Ingestion",
-    description: "Incoming signal parameters (Symbol, Direction, Entry Range, Stop-Loss) are parsed by the execution engine.",
+    description: "Incoming signal parameters such as symbol, direction, entry, stop-loss, and take-profit targets are parsed by the execution engine.",
     icon: ActivityIcon,
   },
   {
     step: "02",
     title: "Validation & Filters",
-    description: "The system checks duplicate rules, signal expiration timestamps, and global drawdown limits.",
+    description: "The system checks signal validity, duplicate protection, expiration rules, entry eligibility, and configured risk protections.",
     icon: CheckCircleIcon,
   },
   {
     step: "03",
     title: "Order Structuring",
-    description: "Position sizing is computed from risk percentage rules, and multi-TP target orders are split.",
+    description: "Position sizing is calculated from the configured risk model and the signal is structured into its supported take-profit orders.",
     icon: SlidersIcon,
   },
   {
     step: "04",
-    title: "MT5 Dispatch",
-    description: "Formulated orders are dispatched to MetaTrader 5 terminal via automated integration API.",
+    title: "MT5 Execution",
+    description: "Eligible orders are opened by the execution system inside the MetaTrader 5 environment.",
     icon: TerminalIcon,
   },
   {
     step: "05",
-    title: "Lifecycle Monitoring",
-    description: "Stop-Loss is automatically moved to Break-Even upon TP1 hit, and remaining runners are managed.",
+    title: "Lifecycle Management",
+    description: "Open positions are monitored for take-profit, stop-loss, break-even, expiration, and protection rules throughout the trade lifecycle.",
     icon: RefreshCwIcon,
   },
 ];
@@ -48,10 +48,9 @@ export function HowItWorksSection() {
         <SectionHeading
           badge="Execution Flow"
           title="How Signal Execution Works"
-          subtitle="A systematic 5-stage pipeline converting incoming signal alerts into structured MetaTrader 5 trades."
+          subtitle="A systematic five-stage pipeline that turns eligible trading signals into managed MetaTrader 5 orders."
         />
 
-        {/* 5-Step Process Cards */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
           {EXECUTION_STEPS.map((stepItem, idx) => {
             const IconComponent = stepItem.icon;
@@ -77,7 +76,7 @@ export function HowItWorksSection() {
                   </p>
                 </div>
                 <div className="pt-2 border-t border-zinc-800/50 text-[10px] font-mono text-zinc-500">
-                  STAGE_{stepItem.step}_VERIFIED
+                  STAGE_{stepItem.step}
                 </div>
               </div>
             );
