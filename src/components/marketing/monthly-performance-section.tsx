@@ -5,50 +5,46 @@ import { BarChartIcon } from "@/components/shared/icons";
 
 export function MonthlyPerformanceSection() {
   return (
-    <section className="py-20 md:py-28 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section className="relative py-20 md:py-28">
+      <div className="mx-auto max-w-7xl space-y-12 px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Historical Record"
-          title="Monthly Performance Log"
-          subtitle="Calendar-month results are published manually. Negative performance periods remain visible rather than being removed from the record."
+          badge="گزارش ماهانه"
+          title="تاریخچه عملکرد ماه‌به‌ماه"
+          subtitle="تمام ماه‌های ثبت‌شده، چه مثبت و چه منفی، برای شفافیت در این بخش نمایش داده می‌شوند."
         />
 
-        <div className="max-w-5xl mx-auto rounded-2xl bg-zinc-900/90 border border-zinc-800 shadow-2xl overflow-hidden backdrop-blur-xl">
-          <div className="px-6 py-4 bg-zinc-950 border-b border-zinc-800 flex flex-wrap items-center justify-between gap-4">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/90 shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800 bg-zinc-950 px-6 py-4">
             <div className="flex items-center gap-2">
               <BarChartIcon size={18} className="text-emerald-400" />
-              <h3 className="text-sm font-mono font-semibold text-zinc-200">
-                MONTHLY_RESULTS_LOG
-              </h3>
+              <h3 className="text-sm font-semibold text-zinc-200">نتایج ماهانه</h3>
             </div>
-            <StatusBadge status="Awaiting Published Data" variant="neutral" />
+            <StatusBadge status="آماده برای ثبت داده" variant="neutral" />
           </div>
 
-          <div className="hidden sm:grid grid-cols-5 px-6 py-3 bg-zinc-950/60 border-b border-zinc-800/60 text-xs font-mono text-zinc-400">
-            <div>CALENDAR MONTH</div>
-            <div className="text-right">RETURN %</div>
-            <div className="text-right">PROFIT / LOSS</div>
-            <div className="text-right">TRADES</div>
-            <div className="text-right">MAX DRAWDOWN</div>
+          <div className="hidden grid-cols-5 border-b border-zinc-800/60 bg-zinc-950/60 px-6 py-3 text-xs text-zinc-400 sm:grid">
+            <div>ماه</div>
+            <div className="text-center">بازده ٪</div>
+            <div className="text-center">سود / زیان</div>
+            <div className="text-center">تعداد معاملات</div>
+            <div className="text-center">حداکثر افت</div>
           </div>
 
-          <div className="p-12 text-center space-y-3 bg-zinc-950/40">
-            <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 mx-auto">
+          <div className="space-y-3 bg-zinc-950/40 p-12 text-center">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-500">
               <BarChartIcon size={22} />
             </div>
-            <div className="space-y-1 max-w-sm mx-auto">
-              <h4 className="text-sm font-semibold text-zinc-200">
-                No Monthly Records Published
-              </h4>
-              <p className="text-xs text-zinc-500 leading-relaxed font-mono">
-                The administrator will publish real monthly results here when they are available. No sample returns are shown in the meantime.
+            <div className="mx-auto max-w-sm space-y-1">
+              <h4 className="text-sm font-semibold text-zinc-200">هنوز نتیجه ماهانه‌ای منتشر نشده</h4>
+              <p className="text-xs leading-6 text-zinc-500">
+                بعد از ثبت نتایج واقعی توسط ادمین، گزارش هر ماه در این قسمت نمایش داده می‌شود و ماه‌های منفی هم پنهان نخواهند شد.
               </p>
             </div>
           </div>
 
-          <div className="px-6 py-3 bg-zinc-950/80 border-t border-zinc-800 text-[11px] font-mono text-zinc-500 flex flex-wrap justify-between gap-2">
-            <span>HISTORY POLICY: RETAIN PUBLISHED MONTHS</span>
-            <span>NEGATIVE MONTHS: REMAIN VISIBLE</span>
+          <div className="flex flex-wrap justify-between gap-2 border-t border-zinc-800 bg-zinc-950/80 px-6 py-3 text-[11px] text-zinc-500">
+            <span>منبع داده: ورود دستی ادمین</span>
+            <span>ماه‌های منفی: قابل مشاهده</span>
           </div>
         </div>
       </div>

@@ -5,66 +5,61 @@ import { LockIcon, ShieldIcon, PlayIcon, RefreshCwIcon } from "@/components/shar
 
 export function LiveBotSection() {
   return (
-    <section id="live-bot" className="py-20 md:py-28 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="live-bot" className="relative py-20 md:py-28">
+      <div className="mx-auto max-w-7xl space-y-12 px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Live Bot Interface"
-          title="24/7 Live Bot View"
-          subtitle="This is the final responsive player shell. The dedicated public MT5 window stream itself will be connected in Phase 3."
+          badge="نمایش زنده ربات"
+          title="مشاهده ۲۴ ساعته اجرای ربات"
+          subtitle="در فاز بعد، یک پنجره اختصاصی و امن از MT5 به‌صورت عمومی نمایش داده می‌شود؛ بدون نمایش دسکتاپ کامل VPS یا اطلاعات محرمانه."
         />
 
-        <div className="max-w-5xl mx-auto rounded-2xl bg-zinc-900/90 border border-zinc-800 shadow-2xl overflow-hidden backdrop-blur-xl">
-          <div className="px-5 py-4 bg-zinc-950 border-b border-zinc-800 flex flex-wrap items-center justify-between gap-4">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/90 shadow-2xl backdrop-blur-xl">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800 bg-zinc-950 px-5 py-4">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-zinc-700" />
-                <span className="w-3 h-3 rounded-full bg-zinc-700" />
-                <span className="w-3 h-3 rounded-full bg-zinc-700" />
+                <span className="h-3 w-3 rounded-full bg-zinc-700" />
+                <span className="h-3 w-3 rounded-full bg-zinc-700" />
+                <span className="h-3 w-3 rounded-full bg-zinc-700" />
               </div>
-              <span className="text-xs font-mono font-semibold text-zinc-300">
-                LIVE BOT // PUBLIC VIEW
-              </span>
+              <span className="text-xs font-semibold text-zinc-300">پنجره عمومی اجرای ربات</span>
             </div>
-            <StatusBadge status="Not Connected Yet" variant="pending" />
+            <StatusBadge status="اتصال استریم در فاز ۳" variant="pending" />
           </div>
 
-          <div className="relative aspect-video w-full bg-zinc-950 flex flex-col items-center justify-center p-8 text-center space-y-4">
+          <div className="relative flex aspect-video w-full flex-col items-center justify-center space-y-4 bg-zinc-950 p-8 text-center">
             <div
-              className="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.04]"
               aria-hidden="true"
             />
-
-            <div className="relative z-10 space-y-4 max-w-md">
-              <div className="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-amber-400 mx-auto shadow-inner">
-                <RefreshCwIcon size={28} className="animate-spin-slow text-amber-400/80" />
+            <div className="relative z-10 max-w-md space-y-4">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900 text-amber-400 shadow-inner">
+                <RefreshCwIcon size={28} className="text-amber-400/80" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-lg sm:text-xl font-bold text-zinc-100">
-                  Live View Integration Pending
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                  Phase 3 will connect a dedicated public MT5 window capture. The full VPS desktop and private credentials must never be exposed through this view.
+                <h3 className="text-lg font-bold text-zinc-100 sm:text-xl">استریم زنده هنوز متصل نشده</h3>
+                <p className="text-xs leading-6 text-zinc-400 sm:text-sm">
+                  در فاز ۳ فقط یک پنجره اختصاصی و امن از محیط عمومی MT5 نمایش داده خواهد شد. هیچ دسترسی عمومی به VPS ایجاد نمی‌شود.
                 </p>
               </div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-zinc-500">
+              <div className="inline-flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/80 px-3 py-1.5 text-xs text-zinc-500">
                 <LockIcon size={12} className="text-emerald-400" />
-                <span>Public Window Only — No VPS Credentials</span>
+                اطلاعات ورود و رمزهای حساس کاملاً جدا می‌مانند
               </div>
             </div>
           </div>
 
-          <div className="px-6 py-4 bg-zinc-950/80 border-t border-zinc-800 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono text-zinc-400">
+          <div className="grid grid-cols-1 gap-4 border-t border-zinc-800 bg-zinc-950/80 px-6 py-4 text-xs text-zinc-400 sm:grid-cols-3">
             <div className="flex items-center gap-2">
-              <ShieldIcon size={14} className="text-emerald-400 shrink-0" />
-              <span>Security Boundary: Dedicated Public View</span>
+              <ShieldIcon size={14} className="shrink-0 text-emerald-400" />
+              <span>VPS: محیط ایزوله و غیرقابل دسترس</span>
             </div>
             <div className="flex items-center gap-2">
-              <PlayIcon size={14} className="text-amber-400 shrink-0" />
-              <span>Stream Technology: Phase 3 Decision</span>
+              <PlayIcon size={14} className="shrink-0 text-amber-400" />
+              <span>استریم: در انتظار پیاده‌سازی فاز ۳</span>
             </div>
             <div className="flex items-center gap-2">
-              <LockIcon size={14} className="text-cyan-400 shrink-0" />
-              <span>MT5 Master Password: Never Requested</span>
+              <LockIcon size={14} className="shrink-0 text-cyan-400" />
+              <span>رمز اصلی MT5: هرگز درخواست نمی‌شود</span>
             </div>
           </div>
         </div>

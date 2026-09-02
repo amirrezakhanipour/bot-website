@@ -3,43 +3,41 @@ import { ShieldIcon, ArrowRightIcon, PlayIcon } from "@/components/shared/icons"
 
 export function FinalCtaSection() {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-gradient-to-b from-zinc-900 via-zinc-900/90 to-zinc-950 border border-zinc-800 p-8 sm:p-12 md:p-16 text-center space-y-8 shadow-2xl backdrop-blur-xl">
-          {/* Subtle Grid Accent */}
+    <section className="relative overflow-hidden py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative space-y-8 rounded-3xl border border-zinc-800 bg-gradient-to-b from-zinc-900 via-zinc-900/90 to-zinc-950 p-8 text-center shadow-2xl backdrop-blur-xl sm:p-12 md:p-16">
           <div
-            className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-[0.03]"
             aria-hidden="true"
           />
 
-          <div className="relative space-y-4 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
+          <div className="relative mx-auto max-w-2xl space-y-4">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs text-emerald-400">
               <ShieldIcon size={14} />
-              SYSTEMATIC DISCIPLINE
+              اجرای منظم، بدون تصمیم‌گیری لحظه‌ای
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-100">
-              Ready for Disciplined Automated Trade Execution?
+            <h2 className="text-3xl font-bold leading-[1.5] tracking-tight text-zinc-100 sm:text-4xl md:text-5xl">
+              برای اجرای خودکار و منظم معاملات آماده‌ای؟
             </h2>
-            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-              Explore system features, review risk management controls, and prepare for automated MetaTrader 5 execution.
+            <p className="text-sm leading-7 text-zinc-400 sm:text-base">
+              قبل از خرید می‌توانی قابلیت‌های ربات، منطق مدیریت ریسک، گزارش عملکرد و نمایش زنده سیستم را بررسی کنی.
             </p>
           </div>
 
-          <div className="relative pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+          <div className="relative flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href="#pricing"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold rounded-xl bg-emerald-500 text-zinc-950 hover:bg-emerald-400 transition-all duration-200 shadow-lg shadow-emerald-500/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-6 py-3.5 text-sm font-semibold text-zinc-950 transition-colors hover:bg-emerald-400 sm:w-auto"
             >
-              <ShieldIcon size={16} />
-              View Pricing Plans
-              <ArrowRightIcon size={16} />
+              مشاهده پلن خرید
+              <ArrowRightIcon size={16} className="rotate-180" />
             </a>
             <a
               href="#live-bot"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-zinc-100 hover:bg-zinc-800 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-6 py-3.5 text-sm font-semibold text-zinc-200 transition-colors hover:bg-zinc-800 sm:w-auto"
             >
               <PlayIcon size={16} />
-              Watch Live Stream (Pending)
+              بخش نمایش زنده
             </a>
           </div>
         </div>

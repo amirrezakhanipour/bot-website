@@ -16,13 +16,17 @@ MVP license/dashboard activation remains manual after payment.
 
 ## Current Phase Gate
 
-Current authorized scope: **Phase 2 — Home Page UI**.
+Phase 1 and Phase 2 are complete. Current work is limited to Phase 2 visual/localization corrections until explicitly approved otherwise.
 
-Phase 1 is complete and merged.
+Do NOT implement Phase 3 Live Bot streaming, Phase 4 Performance data integration, authentication, checkout/payment gateway integration, admin pages, other marketing pages, licensing integration, or Client Dashboard integration without explicit user approval.
 
-During Phase 2, implement ONLY the public Home Page UI and reusable marketing UI primitives needed by that page.
+## Language & Direction
 
-Do NOT implement Phase 3 Live Bot streaming, Phase 4 Performance data integration, authentication, checkout/payment gateway integration, admin pages, other marketing pages, licensing integration, or Client Dashboard integration.
+- The website's primary user-facing language is **Persian (Farsi)**.
+- The default document direction is **RTL** and the root HTML element must use `lang="fa"` and `dir="rtl"`.
+- New public, auth, customer, admin, legal, research, and installation UI should be written in Persian unless the user explicitly asks for another language.
+- Keep unavoidable technical/product terms such as MT5, TP, SL, API, broker names, and code identifiers in their conventional form when clarity benefits from it.
+- Do not silently revert the website to English in future phases.
 
 ## Preferred Stack
 
@@ -44,16 +48,16 @@ Use current stable package versions discovered from official documentation/tooli
 - Payment gateway code must stay behind the existing provider adapter.
 - Future licensing integration must sit behind an adapter; do not couple website domain tables to licensing implementation details.
 
-## Phase 2 Home UI Rules
+## Home UI Rules
 
 - Build a premium, modern, trustworthy trading/fintech visual system.
 - Prioritize mobile responsiveness, accessibility, semantic HTML, and fast loading.
 - Do not fabricate performance numbers, testimonials, client counts, broker logos, awards, certifications, reviews, or trading results.
 - Do not imply guaranteed profit or low/no risk.
-- Live Bot section is a visual integration shell only in Phase 2. Do not create or embed a real stream.
-- Performance sections are presentation shells only in Phase 2. Do not connect them to Supabase and do not invent metrics.
-- Pricing UI may be displayed as a visual shell, but Buy/Checkout flows must not be implemented yet.
-- Navigation links to future pages may exist, but do not build those pages in Phase 2.
+- Live Bot section is a visual integration shell until Phase 3. Do not create or embed a real stream early.
+- Performance sections remain presentation shells until Phase 4. Do not invent metrics.
+- Pricing UI may be displayed as a visual shell, but Buy/Checkout flows must not be implemented before their authorized phase.
+- Navigation links to future pages may exist, but do not build those pages early.
 - Keep marketing copy factual and restrained.
 - Include clear trading risk language on the Home Page.
 
@@ -87,7 +91,7 @@ Before considering a task complete:
 - run `npm run lint`;
 - run `npm run build`;
 - inspect the page at common desktop and mobile widths;
-- check for obvious horizontal overflow and broken layout;
+- check for obvious horizontal overflow and broken RTL layout;
 - ensure controls have accessible labels/focus behavior where applicable;
 - inspect `git diff` and avoid unrelated changes.
 
@@ -95,7 +99,6 @@ For any future Supabase DDL changes, run current security/performance advisors a
 
 ## Git Workflow
 
-- Work on `phase/2-home-ui` for this phase.
 - Keep commits phase/task scoped.
 - Do not force-push or rewrite shared history.
 - Do not start the next phase automatically after completing the current one.

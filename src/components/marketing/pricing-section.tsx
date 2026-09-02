@@ -3,75 +3,66 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { CheckIcon, ShieldIcon, ArrowRightIcon } from "@/components/shared/icons";
 
 const PLAN_INCLUSIONS = [
-  "Automated MT5 signal execution engine",
-  "Multi take-profit target support for eligible signals",
-  "Break-even trade management",
-  "Dynamic position sizing and configured risk calculations",
-  "Duplicate signal protection and signal expiration limits",
-  "Configured execution risk-limit protections",
-  "Client dashboard access after activation",
+  "اجرای خودکار سیگنال در MetaTrader 5",
+  "مدیریت چند هدف سود تا ۶ TP",
+  "مدیریت حد ضرر و سر‌به‌سر",
+  "محاسبه خودکار حجم بر اساس ریسک",
+  "جلوگیری از اجرای تکراری و انقضای سیگنال",
+  "اعمال محدودیت‌های ریسک تعریف‌شده",
+  "دسترسی به پنل مشتری پس از فعال‌سازی",
 ];
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="py-20 md:py-28 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="pricing" className="relative py-20 md:py-28">
+      <div className="mx-auto max-w-7xl space-y-12 px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Subscription"
-          title="Simple Pricing Structure"
-          subtitle="The MVP uses one monthly plan. The final price will be loaded from the website pricing database when commerce is connected."
+          badge="اشتراک ربات"
+          title="قیمت‌گذاری ساده و شفاف"
+          subtitle="در نسخه اولیه یک پلن ماهانه ارائه می‌شود. قیمت نهایی از دیتابیس سایت خوانده خواهد شد و قبل از پرداخت به‌وضوح نمایش داده می‌شود."
         />
 
-        <div className="max-w-xl mx-auto rounded-2xl bg-zinc-900/90 border border-emerald-500/30 shadow-2xl overflow-hidden backdrop-blur-xl p-8 space-y-8 relative">
-          <div className="absolute top-0 right-0 px-4 py-1.5 bg-emerald-500/10 border-b border-l border-emerald-500/30 rounded-bl-xl text-[10px] font-mono font-semibold text-emerald-400">
-            MVP PLAN
+        <div className="relative mx-auto max-w-xl space-y-8 overflow-hidden rounded-2xl border border-emerald-500/30 bg-zinc-900/90 p-8 shadow-2xl backdrop-blur-xl">
+          <div className="absolute left-0 top-0 rounded-br-xl border-b border-r border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-[10px] font-semibold text-emerald-400">
+            پلن اولیه
           </div>
 
-          <div className="space-y-3">
-            <h3 className="text-xl font-bold text-zinc-100">
-              Monthly Bot Subscription
-            </h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
-              Subscription access to the trading bot product, with account activation handled through the website order process.
+          <div className="space-y-3 pt-2">
+            <h3 className="text-xl font-bold text-zinc-100">اشتراک ماهانه ربات</h3>
+            <p className="text-xs leading-6 text-zinc-400">
+              دسترسی کامل به سیستم اجرای خودکار سیگنال و قابلیت‌های مدیریت معامله. فعال‌سازی در MVP پس از تأیید پرداخت توسط ادمین انجام می‌شود.
             </p>
-            <div className="pt-4 flex items-baseline gap-2">
-              <span className="text-3xl sm:text-4xl font-extrabold text-zinc-100 font-mono">
-                Not Published Yet
-              </span>
+            <div className="pt-4">
+              <span className="text-2xl font-extrabold text-zinc-100 sm:text-3xl">قیمت هنوز منتشر نشده</span>
             </div>
-            <p className="text-[11px] font-mono text-zinc-500">
-              Final pricing is intentionally not fabricated in this Phase 2 UI.
-            </p>
+            <p className="text-[11px] text-zinc-500">مبلغ واقعی قبل از پرداخت نمایش داده خواهد شد.</p>
           </div>
 
           <div className="space-y-3 border-t border-zinc-800 pt-6">
-            <span className="text-xs font-mono font-semibold text-zinc-300 uppercase tracking-wider">
-              Planned Subscription Access:
-            </span>
+            <span className="text-xs font-semibold text-zinc-300">امکانات پلن:</span>
             <ul className="space-y-2.5 text-xs text-zinc-300">
-              {PLAN_INCLUSIONS.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5">
-                  <div className="w-4 h-4 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+              {PLAN_INCLUSIONS.map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
                     <CheckIcon size={10} />
                   </div>
-                  <span className="leading-normal">{item}</span>
+                  <span className="leading-6">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="pt-2 space-y-3">
+          <div className="space-y-3 pt-2">
             <a
               href="#pricing"
-              aria-disabled="true"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold rounded-xl bg-zinc-800 text-zinc-400 border border-zinc-700 cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-6 py-3.5 text-sm font-semibold text-zinc-950 shadow-lg shadow-emerald-500/10 transition-all duration-200 hover:bg-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
             >
               <ShieldIcon size={16} />
-              Checkout Not Connected Yet
-              <ArrowRightIcon size={16} />
+              خرید ربات
+              <ArrowRightIcon size={16} className="rotate-180" />
             </a>
-            <p className="text-[11px] font-mono text-center text-zinc-500">
-              Checkout and payment are later phases. MVP license and client-dashboard activation will be completed manually after confirmed payment.
+            <p className="text-center text-[11px] leading-5 text-zinc-500">
+              فرایند ثبت‌نام و پرداخت در فازهای بعدی فعال می‌شود؛ این دکمه فعلاً نمایشی است.
             </p>
           </div>
         </div>

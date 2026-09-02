@@ -9,51 +9,47 @@ import {
 
 const TRUST_PULSES = [
   {
-    title: "MetaTrader 5 Execution",
-    description: "Runs within the MT5 trading environment",
+    title: "اجرای مستقیم در MT5",
+    description: "فعال در محیط متاتریدر ۵",
     icon: CpuIcon,
   },
   {
-    title: "Structured Risk Rules",
-    description: "Stop-loss and risk controls",
+    title: "قوانین مدیریت ریسک",
+    description: "کنترل حد ضرر و حجم معامله",
     icon: ShieldIcon,
   },
   {
-    title: "Multi-TP Execution",
-    description: "Supports multiple signal targets",
+    title: "چند هدف سود",
+    description: "پشتیبانی از چند TP در هر سیگنال",
     icon: SlidersIcon,
   },
   {
-    title: "Duplicate Guard",
-    description: "Blocks duplicate signal execution",
+    title: "محافظت از اجرای تکراری",
+    description: "جلوگیری از باز شدن معامله تکراری",
     icon: CheckCircleIcon,
   },
   {
-    title: "Operational Logging",
-    description: "Execution events remain traceable",
+    title: "ثبت رویدادهای اجرایی",
+    description: "قابل پیگیری بودن اتفاقات سیستم",
     icon: ActivityIcon,
   },
 ];
 
 export function TrustStrip() {
   return (
-    <section className="py-8 bg-zinc-900/40 border-y border-zinc-800/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 items-center justify-between">
-          {TRUST_PULSES.map((pillar, idx) => {
+    <section className="border-y border-zinc-800/60 bg-zinc-900/40 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center justify-between gap-5 sm:grid-cols-2 md:grid-cols-5 sm:gap-8">
+          {TRUST_PULSES.map((pillar) => {
             const IconComponent = pillar.icon;
             return (
-              <div key={idx} className="flex items-center gap-3 text-left group">
-                <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-400 group-hover:border-emerald-500/40 transition-colors shrink-0">
+              <div key={pillar.title} className="group flex items-center gap-3 text-right">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-emerald-400 transition-colors group-hover:border-emerald-500/40">
                   <IconComponent size={18} />
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold text-zinc-200 tracking-tight">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-[11px] text-zinc-500 font-mono">
-                    {pillar.description}
-                  </p>
+                  <h3 className="text-xs font-semibold tracking-tight text-zinc-200">{pillar.title}</h3>
+                  <p className="mt-1 text-[11px] leading-5 text-zinc-500">{pillar.description}</p>
                 </div>
               </div>
             );
