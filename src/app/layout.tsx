@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Trading Bot Sales Website",
-  description: "Trading Bot Sales Website Phase 1 Foundation",
+  title: "Trading Bot | Automated MT5 Trade Execution",
+  description:
+    "Automated MetaTrader 5 signal execution engine with built-in position sizing, multi take-profit target splits, trailing break-even management, duplicate trade protection, and strict risk limits.",
 };
 
 export default function RootLayout({
@@ -25,9 +26,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-emerald-500/20 selection:text-emerald-300">
+        {children}
+      </body>
     </html>
   );
 }
