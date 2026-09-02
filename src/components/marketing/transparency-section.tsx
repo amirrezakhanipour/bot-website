@@ -4,54 +4,47 @@ import { LockIcon, ShieldIcon, ActivityIcon, CheckCircleIcon } from "@/component
 
 const TRANSPARENCY_PILLARS = [
   {
-    title: "Performance Revision History",
-    description: "Manual performance metric edits create new timestamped value records so prior metric revisions remain available. Monthly records are retained, including negative months.",
+    title: "تاریخچه تغییرات عملکرد",
+    description: "هر بار که ادمین یکی از شاخص‌های عملکرد را تغییر می‌دهد، مقدار جدید همراه با زمان ثبت می‌شود تا نسخه‌های قبلی قابل پیگیری باشند. ماه‌های منفی نیز در تاریخچه ماهانه باقی می‌مانند.",
     icon: ActivityIcon,
   },
   {
-    title: "Zero Master Password Storage",
-    description: "The website never requests, logs, or stores your MetaTrader 5 master password. Activation data is limited to account login, broker, and server name.",
+    title: "عدم دریافت رمز اصلی MT5",
+    description: "وب‌سایت هیچ‌وقت رمز اصلی حساب MetaTrader 5 را درخواست، ثبت یا ذخیره نمی‌کند. اطلاعات موردنیاز فقط شماره حساب، بروکر و سرور است.",
     icon: LockIcon,
   },
   {
-    title: "Rule-Based Trade Management",
-    description: "Configured execution, position-sizing, stop-loss, take-profit, break-even, duplicate-protection, and risk-limit rules are applied systematically by the bot.",
+    title: "مدیریت معامله بر پایه قوانین مشخص",
+    description: "اجرای سفارش، حجم‌گیری، حد ضرر، اهداف سود، سر‌به‌سر، جلوگیری از تکرار و محدودیت‌های ریسک طبق منطق تعریف‌شده ربات اعمال می‌شوند.",
     icon: ShieldIcon,
   },
   {
-    title: "Documented Research & Methodologies",
-    description: "System features, reference material, and installation guidance will be documented on dedicated website pages as those phases are implemented.",
+    title: "مستندات و منابع قابل بررسی",
+    description: "صفحات معرفی کامل ربات، تحقیقات استفاده‌شده، راهنمای نصب و قوانین در فازهای بعدی به‌صورت مستقل و شفاف در سایت قرار می‌گیرند.",
     icon: CheckCircleIcon,
   },
 ];
 
 export function TransparencySection() {
   return (
-    <section className="py-20 md:py-28 bg-zinc-950/60 border-y border-zinc-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section className="border-y border-zinc-800/80 bg-zinc-950/60 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl space-y-12 px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Product Principles"
-          title="Transparency & Operational Security"
-          subtitle="Designed around clear product boundaries, visible risk disclosures, traceable performance updates, and careful handling of account information."
+          badge="شفافیت و امنیت"
+          title="اعتماد باید با اطلاعات قابل بررسی ساخته شود"
+          subtitle="مرزهای محصول، ریسک معامله‌گری، نحوه ثبت عملکرد و اطلاعاتی که از کاربر دریافت می‌شود باید روشن و بدون ابهام باشد."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {TRANSPARENCY_PILLARS.map((pillar, idx) => {
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2">
+          {TRANSPARENCY_PILLARS.map((pillar) => {
             const IconComponent = pillar.icon;
             return (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 space-y-4"
-              >
-                <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-400">
+              <div key={pillar.title} className="space-y-4 rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-emerald-400">
                   <IconComponent size={20} />
                 </div>
-                <h3 className="text-base font-semibold text-zinc-100">
-                  {pillar.title}
-                </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  {pillar.description}
-                </p>
+                <h3 className="text-base font-semibold text-zinc-100">{pillar.title}</h3>
+                <p className="text-xs leading-6 text-zinc-400">{pillar.description}</p>
               </div>
             );
           })}
