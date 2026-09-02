@@ -19,7 +19,6 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-zinc-950/80 border-b border-zinc-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand / Logo */}
         <a
           href="#hero"
           className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-md px-1 py-0.5"
@@ -29,7 +28,7 @@ export function SiteHeader() {
           </div>
           <div className="flex flex-col">
             <span className="text-sm font-bold tracking-wider text-zinc-100 uppercase font-mono">
-              QuantExec<span className="text-emerald-400">.bot</span>
+              Trading Bot
             </span>
             <span className="text-[10px] text-zinc-500 font-mono leading-none">
               MT5 Execution
@@ -37,7 +36,6 @@ export function SiteHeader() {
           </div>
         </a>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1" aria-label="Main Navigation">
           {NAV_LINKS.map((link) => (
             <a
@@ -50,7 +48,6 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        {/* Desktop CTA & Mobile Toggle */}
         <div className="flex items-center gap-3">
           <a
             href="#pricing"
@@ -60,7 +57,6 @@ export function SiteHeader() {
             View Pricing
           </a>
 
-          {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -73,7 +69,6 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-zinc-800 bg-zinc-950/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-3">
           <nav className="flex flex-col space-y-1" aria-label="Mobile Navigation">
