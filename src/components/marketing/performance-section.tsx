@@ -3,45 +3,45 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { MetricCard } from "@/components/shared/metric-card";
 
 const METRIC_CATALOG = [
-  { label: "Total Profit", description: "Cumulative net profit for the published performance record." },
-  { label: "Monthly Profit", description: "Net profit for the currently published calendar month." },
-  { label: "Profit Factor", description: "Ratio of total gross profits to total gross losses." },
-  { label: "Recovery Factor", description: "Ratio of net profit to maximum drawdown." },
-  { label: "Maximum Drawdown", description: "Largest recorded peak-to-trough decline in the published performance series." },
-  { label: "Win Rate", description: "Percentage of closed trades recorded as profitable." },
-  { label: "Total Trades", description: "Total count of closed trades in the published record." },
-  { label: "Winning Trades", description: "Count of closed trades recorded with a positive result." },
-  { label: "Losing Trades", description: "Count of closed trades recorded with a negative result." },
-  { label: "Average Win", description: "Average result across winning trades." },
-  { label: "Average Loss", description: "Average result across losing trades." },
-  { label: "Average Risk/Reward", description: "Published average risk-to-reward measure for the tracked trades." },
+  { label: "سود کل", description: "سود یا زیان خالص ثبت‌شده برای عملکرد ربات." },
+  { label: "سود ماهانه", description: "نتیجه ثبت‌شده برای ماه جاری." },
+  { label: "Profit Factor", description: "نسبت مجموع سود معاملات برنده به مجموع زیان معاملات بازنده." },
+  { label: "Recovery Factor", description: "نسبت سود خالص به بیشترین افت سرمایه." },
+  { label: "حداکثر افت سرمایه", description: "بیشترین افت ثبت‌شده سرمایه از سقف تا کف." },
+  { label: "نرخ برد", description: "درصد معاملات بسته‌شده با نتیجه مثبت." },
+  { label: "تعداد کل معاملات", description: "تعداد کل معاملات ثبت‌شده در آمار عملکرد." },
+  { label: "معاملات برنده", description: "تعداد معاملات بسته‌شده با نتیجه مثبت." },
+  { label: "معاملات بازنده", description: "تعداد معاملات بسته‌شده با نتیجه منفی." },
+  { label: "میانگین سود", description: "میانگین سود معاملات برنده." },
+  { label: "میانگین زیان", description: "میانگین زیان معاملات بازنده." },
+  { label: "میانگین ریسک به بازده", description: "میانگین نسبت ریسک به بازده ثبت‌شده." },
 ];
 
 export function PerformanceSection() {
   return (
-    <section id="performance" className="py-20 md:py-28 bg-zinc-950/60 border-y border-zinc-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="performance" className="border-y border-zinc-800/80 bg-zinc-950/60 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl space-y-12 px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Performance Record"
-          title="Performance Metrics"
-          subtitle="Performance figures are managed manually by the website administrator and remain unpublished until real values are entered."
+          badge="گزارش عملکرد"
+          title="آمار شفاف عملکرد ربات"
+          subtitle="این اعداد توسط ادمین و بر اساس نتایج واقعی وارد می‌شوند. تا زمان انتشار داده معتبر، هیچ عدد نمونه یا ساختگی نمایش داده نمی‌شود."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {METRIC_CATALOG.map((metric, idx) => (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+          {METRIC_CATALOG.map((metric) => (
             <MetricCard
-              key={idx}
+              key={metric.label}
               label={metric.label}
               value={null}
               description={metric.description}
-              statusText="Not published yet"
+              statusText="هنوز منتشر نشده"
             />
           ))}
         </div>
 
-        <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 text-center max-w-2xl mx-auto">
-          <p className="text-xs text-zinc-400 font-mono">
-            No figures are simulated for this UI. Performance metric updates use timestamped revision records so prior metric values can be retained.
+        <div className="mx-auto max-w-2xl rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-center">
+          <p className="text-xs leading-6 text-zinc-400">
+            تاریخچه تغییرات شاخص‌های عملکرد حفظ می‌شود تا آمار قبلی بدون ردپا جایگزین نشوند.
           </p>
         </div>
       </div>
